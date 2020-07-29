@@ -1,16 +1,20 @@
 <template>
     <div id="app">
         <PixiCanvas/>
+        <hr>
+        <PixiCanvas2/>
     </div>
 </template>
 
 <script>
     import PixiCanvas from './components/PixiCanvas.vue'
+    import PixiCanvas2 from './components/PixiCanvas2.vue'
 
     export default {
         name: 'App',
         components: {
-            PixiCanvas
+            PixiCanvas,
+            PixiCanvas2
         }
     }
 </script>

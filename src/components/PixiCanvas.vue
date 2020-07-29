@@ -1,34 +1,27 @@
 <template>
-    <canvas ref="canvas"/>
+    <div ref="canvasBox" id="CanvasBox"/>
 </template>
 
 <script>
     import * as pixiObj from '@/pixi/pixi';
-    import * as PIXI from 'pixi.js';
 
     export default {
         //https://qiita.com/t_furu/items/042f2d8f4cbcf8056b8c
         name: "PixiCanvas",
         data() {
             return {
-                pixiApp: PIXI.Application({width: 340, height: 240}),
-                style: pixiObj.style,
+                pixiApp: pixiObj.pixiApp,
                 text: pixiObj.text,
             }
         },
-        created() {
-            this.text.x = 300;
-            this.text.y = 100;
-        },
         mounted() {
-            const renderer = new PIXI.autoDetectRenderer(900, 300, {
-                backgroundColor: 0x8c89a0,
-                view: this.$refs.canvas
-            });
+            const container = this.$refs.canvasBox;
+            //同じ要素を指すがVueでは普通$refsを使用
+            //console.log(this.$refs.canvasBox);
+            //console.log(document.getElementById('CanvasBox'))
+            container.appendChild(this.pixiApp.view);//<canvas>をcanvasBoxに差し込む
             this.pixiApp.stage.addChild(this.text);
-            renderer.render(this.pixiApp.stage);
-        },
-        methods: {}
+        }
     }
 </script>
 
