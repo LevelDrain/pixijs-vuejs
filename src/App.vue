@@ -1,20 +1,19 @@
 <template>
     <div id="app">
-        <PixiCanvas/>
-        <hr>
-        <PixiCanvas2/>
+        <div class="box">
+            <BubbleEffect class="upper"/>
+            <img alt="illustya" src="./assets/movie_baiyousou.png" height="500">
+        </div>
     </div>
 </template>
 
 <script>
-    import PixiCanvas from './components/PixiCanvas.vue'
-    import PixiCanvas2 from './components/PixiCanvas2.vue'
+    import BubbleEffect from './components/Bubble.vue'
 
     export default {
         name: 'App',
         components: {
-            PixiCanvas,
-            PixiCanvas2
+            BubbleEffect
         }
     }
 </script>
@@ -27,5 +26,17 @@
         text-align: center;
         color: #2c3e50;
         margin-top: 60px;
+    }
+
+    .box {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .upper {
+        position: absolute;
+        top: 18%;
     }
 </style>
